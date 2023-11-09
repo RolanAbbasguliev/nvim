@@ -3,7 +3,7 @@ lsp_zero.extend_lspconfig();
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver", "html", "cssls", "clangd", "emmet_ls"}
+  ensure_installed = { "lua_ls", "tsserver", "html", "cssls", "clangd", "emmet_ls", "gopls"}
 })
 
 local on_attach = function(_, bufnr)
@@ -40,6 +40,9 @@ require("lspconfig").emmet_ls.setup {
     on_attach = on_attach;
 }
 
+require("lspconfig").gopls.setup {
+    on_attach = on_attach;
+}
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
