@@ -3,7 +3,7 @@ lsp_zero.extend_lspconfig();
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver", "html", "cssls", "clangd"}
+  ensure_installed = { "lua_ls", "tsserver", "html", "cssls", "clangd", "emmet_ls"}
 })
 
 local on_attach = function(_, bufnr)
@@ -33,6 +33,10 @@ require("lspconfig").cssls.setup {
 }
 
 require("lspconfig").clangd.setup {
+    on_attach = on_attach;
+}
+
+require("lspconfig").emmet_ls.setup {
     on_attach = on_attach;
 }
 
